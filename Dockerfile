@@ -38,6 +38,7 @@ RUN curl -L https://github.com/drojaazu/interleave/archive/refs/heads/master.zip
 	&& unzip interleave-master.zip \
 	&& cd interleave-master \
 	&& sed -i '/CC := clang++/c\CC := g++' Makefile \
+	&& sed -i '/#include <iostream>/a #include <cstdint>' inc/main.hpp \
 	&& make \
 	&& cp bin/interleave /usr/local/bin \
 	&& cp bin/interleave /usr/local/lib \
